@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deploy Panel | Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <div class="login-container" id="login-page">
+    <h1>🔒 Panel Deploy</h1>
+    <form id="loginForm">
+      <input type="text" id="KAMU" placeholder="Username" required>
+      <input type="KAMU ADALAH 1" id="password" placeholder="Password" required>
+      <button type="submit">Masuk</button>
+    </form>
+    <p class="info">Masukkan username & password untuk melanjutkan</p>
+  </div>
+
+  <div class="dashboard" id="dashboard">
+    <h1>🚀 Deploy Web Kamu</h1>
+    <p>Upload file HTML atau drag ke sini untuk mendeploy.</p>
+    <input type="file" id="fileInput">
+    <button onclick="alert('Simulasi deploy berhasil!')">Deploy Sekarang</button>
+  </div>
+
+  <script>
+    // Loading efek
+    window.addEventListener("load", () => {
+      setTimeout(() => document.getElementById("loader").style.display = "none", 1500);
+    });
+
+    // Login sederhana
+    const loginForm = document.getElementById("loginForm");
+    const dashboard = document.getElementById("dashboard");
+    const loginPage = document.getElementById("login-page");
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && pass === "12345") {
+        loginPage.style.display = "none";
+        dashboard.style.display = "block";
+      } else {
+        alert("Username atau password salah!");
+      }
+    });
+  </script>
+</body>
+</html>
